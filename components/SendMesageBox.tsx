@@ -3,13 +3,13 @@ import { useMessages } from "@/hooks/useMessage";
 import React, { useState } from "react";
 
 const SendMessageBox = () => {
-  const [message, setMessage] = useState("");
+  const [messages, setMessage] = useState("");
   const { postMessage } = useMessages();
 
   const onClickSend = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const requestMessage = {
-      id: "exmaple",
-      body: message,
+      id: "example",
+      body: messages,
       channelId: "1",
       createdAt: new Date(),
     }
@@ -22,7 +22,7 @@ const SendMessageBox = () => {
       <div className={styles.header}></div>
       <textarea 
         className={styles["message-box"]}
-        value={message} 
+        value={messages} 
         onChange={(e) => setMessage(e.target.value)}
       ></textarea>
       <button onClick={onClickSend}>Send</button>
